@@ -1,0 +1,5 @@
+.*.swp
+.*.swo
+hardware-configuration.nix
+hostname
+private
