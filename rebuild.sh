@@ -13,7 +13,6 @@ sudo rsync --filter="protect /hardware-configuration.nix" \
            --filter="exclude Session.vim" \
            --delete --recursive --perms \
            $SRC/ /etc/nixos/
-
 if [ $# -eq 0 ]; then
   operation='switch'
 else
