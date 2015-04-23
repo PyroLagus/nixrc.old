@@ -23,7 +23,7 @@ fi
 if [ ! -d $NIXRC ]; then
   nix-env --install git
   cd /mnt/
-  git clone "https://github.com/C0DEHERO/nixrc"
+  git clone "https://github.com/C0DEHERO/nixrc" --recursive
 fi
 
 # Determine the hostname from either UUID or MAC address.
