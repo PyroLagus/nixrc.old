@@ -6,11 +6,16 @@
     ../services/mpd.nix
   ];
 
+  nixpkgs.config.allowUnfree = true;
+
+  hardware.pulseaudio.enable = true;
+
   environment.systemPackages = with pkgs; [                
     (pkgs.ncmpcpp.override { outputsSupport = true; })
     (pkgs.pulseaudio.override { ossWrapper = true; })
     (pkgs.texLiveAggregationFun { paths = [ pkgs.texLive pkgs.texLiveExtra pkgs.texLiveBeamer pkgs.lmodern pkgs.tipa ]; })
     blender
+    bluez
     deadbeef
     dunst
     ffmpeg
@@ -26,9 +31,9 @@
     picard
     pidgin-with-plugins
     pkgs.python34Packages.livestreamer
-    rxvt_perls
     rxvt_unicode
     thunderbird
+    urxvt_perls
     xcompmgr # for transparent term
     xfontsel
     xlibs.xdpyinfo
@@ -45,6 +50,7 @@
       corefonts
       dejavu_fonts
       fira
+      fira-mono
       inconsolata
       lmodern
     ];

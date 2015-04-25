@@ -13,7 +13,6 @@
     links2
     mc
     netcat
-    patchelf
     psmisc
     screen
     screenfetch

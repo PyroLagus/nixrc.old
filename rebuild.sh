@@ -11,6 +11,8 @@ sudo rsync --filter="protect /hardware-configuration.nix" \
            --filter="exclude,s *.git" \
            --filter="exclude .*.swp" \
            --filter="exclude Session.vim" \
+           --filter="exclude *~" \
+           --filter="exclude \#*\#" \
            --delete --recursive --perms \
            $SRC/ /etc/nixos/
 if [ $# -eq 0 ]; then
@@ -18,5 +20,4 @@ if [ $# -eq 0 ]; then
 else
   operation=$1
 fi
-cd $wd
 sudo NIX_CURL_FLAGS='--retry=1000' nixos-rebuild --keep-failed $operation

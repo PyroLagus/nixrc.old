@@ -1,5 +1,6 @@
-{ config, pkgs, pkgs_i686, ... }:
+{ config, lib, pkgs, ... }:
 
+with lib;
 rec {
   imports = [
     ./profiles/default.nix
@@ -56,8 +57,8 @@ rec {
       ln -fs ${./dotfiles/nixpkgs/config.nix} .nixpkgs/config.nix
       mkdir .emacs.d 2>/dev/null || true
       chown codehero:codehero .emacs.d
-      ln -fs ${./dotfiles/emacs.d/init.el} .nixpkgs/config.nix
-      ln -fs ${./dotfiles/emacs.d/emacs.org} .nixpkgs/config.nix
+      ln -fs ${./dotfiles/emacs.d/init.el} .emacs.d/init.el
+      ln -fs ${./dotfiles/emacs.d/emacs.org} .emacs.d/emacs.org
       ln -fs ${./dotfiles/xmobarrc} .xmobarrc
       ln -fs ${./dotfiles/dmrc} .dmrc
       ln -fs ${./dotfiles/fehbg} .fehbg
@@ -72,5 +73,6 @@ rec {
       mkdir .xmonad 2>/dev/null || true
       chown codehero:codehero .xmonad
       ln -fs ${./dotfiles/xmonad/xmonad.hs} .xmonad/xmonad.hs
-    ''
+    '';
+  };
 }

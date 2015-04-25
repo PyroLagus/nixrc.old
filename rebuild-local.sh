@@ -24,6 +24,8 @@ sudo rsync --filter="protect /hardware-configuration.nix" \
            --filter="exclude,s *.git" \
            --filter="exclude .*.swp" \
            --filter="exclude Session.vim" \
+           --filter="exclude *~" \
+           --filter="exclude \#*\#" \
            --delete --recursive --perms \
            $SRC/ /etc/nixos/
 
@@ -32,5 +34,4 @@ if [ $# -eq 0 ]; then
 else
   operation=$1
 fi
-cd $wd
 sudo nixos-rebuild -I nixos=/home/codehero/code/nixpkgs/nixos -I nixpkgs=/home/codehero/code/nixpkgs $operation
