@@ -64,7 +64,7 @@ rec {
       ln -fs ${./dotfiles/fehbg} .fehbg
       mkdir .cabal 2>/dev/null || true
       ln -fs ${./dotfiles/cabal/config} .cabal/config
-      ln -fs ${./dotfiles/Xdefaults} .Xdefaults
+      ln -fs ${./dotfiles/Xresources} .Xresources
       ln -fs ${./dotfiles/zshrc} .zshrc
       ln -fs ${./dotfiles/zshrc.local} .zshrc.local
       mkdir .pulse 2>/dev/null || true
