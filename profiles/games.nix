@@ -5,5 +5,7 @@
     steam
     xonotic
     minetest
+    nethack
+    voxelands
   ];
 }

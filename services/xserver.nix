@@ -17,11 +17,8 @@
     [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
     eval $(cat ~/.fehbg) &          # set wallpaper
     xcompmgr &                      # for transparent terminals
-    (urxvtd &&                      # start urxvt-daemon
-     (urxvtc -name weechat -e weechat &) && # start weechat
-     (urxvtc -name ncmpcpp -e ncmpcpp &)) & # start ncmpcpp
+    urxvtd &                      # start urxvt-daemon
     pidgin &                        # start pidgin
-    pavucontrol &                   # start pavucontrol
     (emacs --daemon && emacsclient -c) &
   '';
     desktopManager.default = "none";

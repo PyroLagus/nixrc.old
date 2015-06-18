@@ -9,16 +9,19 @@
   nixpkgs.config.allowUnfree = true;
 
   hardware.pulseaudio.enable = true;
+  
+  hardware.pulseaudio.package = pkgs.pulseaudioFull;
 
   environment.systemPackages = with pkgs; [                
     (pkgs.ncmpcpp.override { outputsSupport = true; })
-    (pkgs.pulseaudio.override { ossWrapper = true; })
     (pkgs.texLiveAggregationFun { paths = [ pkgs.texLive pkgs.texLiveExtra pkgs.texLiveBeamer pkgs.lmodern pkgs.tipa ]; })
+    (pkgs.mumble.override { pulseSupport = true; })
     blender
-    bluez
     deadbeef
     dunst
     ffmpeg
+    #(lib.singleton (pkgs.wrapFirefox { browser = pkgs.firefox-bin; }))
+    #firefox-bin-wrapper
     firefox-bin
     gimp
     haskellngPackages.xmobar
@@ -32,7 +35,7 @@
     pidgin-with-plugins
     pkgs.python34Packages.livestreamer
     rxvt_unicode
-    thunderbird
+    thunderbird-bin
     urxvt_perls
     xcompmgr # for transparent term
     xfontsel
@@ -42,6 +45,7 @@
     youtube-dl
     zathura
   ];
+
   
   fonts = {
     enableFontDir = true;
@@ -58,7 +62,7 @@
 
   nixpkgs.config.packageOverrides = pkgs:
   {
-    bluez = pkgs.bluez5; # Use newer version of bluez.
+    bluez = pkgs.bluez5;
     pidgin-with-plugins = pkgs.pidgin-with-plugins.override {
       plugins = [ pkgs.pidginotr ];
     };

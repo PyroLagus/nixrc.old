@@ -48,6 +48,7 @@ rec {
     ''
       cd /home/codehero
       ln -fs ${./dotfiles/aliases} .aliases
+      ln -fs ${./dotfiles/alsoftrc} .alsoftrc
       ln -fs ${./dotfiles/bash_profile} .bash_profile
       ln -fs ${./dotfiles/bashrc} .bashrc
       ln -fsn ${./dotfiles/bin} bin
@@ -65,6 +66,10 @@ rec {
       mkdir .nixpkgs 2>/dev/null || true
       chown codehero:users .nixpkgs
       ln -fs ${./dotfiles/nixpkgs/config.nix} .nixpkgs/config.nix
+      mkdir .nixpkgs/firefox-nightly 2>/dev/null || true
+      chown codehero:users .nixpkgs/firefox-nightly
+      ln -fs ${./dotfiles/nixpkgs/firefox-nightly/default.nix} .nixpkgs/firefox-nightly/default.nix
+      ln -fs ${./dotfiles/nixpkgs/firefox-nightly/generate_source.sh} .nixpkgs/firefox-nightly/generate_source.sh
       mkdir .pulse 2>/dev/null || true
       chown codehero:users .pulse
       ln -fs ${./dotfiles/pulse/default.pa} .pulse/default.pa

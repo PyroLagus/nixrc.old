@@ -7,7 +7,6 @@
     atom
     binutils
     cmake
-    haskellngPackages.yi
     patchelf
     python
     ruby
